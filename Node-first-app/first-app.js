@@ -3,4 +3,4 @@
 const fs =  require('fs')
 
 // writeFileSync create a file syntax:  writeFileSync(path,content)
-fs.writeFileSync('hello.txt',"hello from node JS");
+fs.writeFileSync('hello.txt',"hello from node JS. This is first node app");
