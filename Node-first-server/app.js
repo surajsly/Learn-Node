@@ -13,6 +13,20 @@ const http = require("http");
 
 const server = http.createServer((req,res)=>{
 	console.log(req);
+	console.log("important in response: \n url --> ",req.url,"\n method --> ",req.method,"\n headers -->" , req.headers);
+	
+	// res.setHeader set certain header for response
+	res.setHeader('Content-Type',"text/html");
+
+	// res.write allow you to write response
+	res.write('<html>');
+	res.write('<head> <title> My first Page </title> </head>');
+	res.write('<body> <h1> hello from my node.js server </h1> </body>');
+	res.write('</html>');
+
+	// end response writing cant use  res.write beyond this as it will result in error 
+	res.end();
+
 	// process.exit() forced shut down the server 
 	// process.exit();
 });
