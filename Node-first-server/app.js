@@ -1,6 +1,6 @@
 // create server only with core node module 
 
-//importing core modules
+//importing core node modules
 const http = require("http");
 
 
