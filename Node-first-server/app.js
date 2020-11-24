@@ -24,7 +24,7 @@ const server = http.createServer((req,res)=>{
 	res.write('<body> <h1> hello from my node.js server </h1> </body>');
 	res.write('</html>');
 
-	// end response writing cant use  res.write beyond this as it will result in error 
+	// res.end signifies response writing . You cannot use res.write beyond this as it will result in error 
 	res.end();
 
 	// process.exit() forced shut down the server 
