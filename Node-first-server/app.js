@@ -2,7 +2,7 @@
 
 //importing core node modules
 const http = require("http");
-
+const fs = require("fs");
 
 
 // http.createServer method create a server  
@@ -12,8 +12,34 @@ const http = require("http");
 // ( 2 )  A response object,
 
 const server = http.createServer((req,res)=>{
-	console.log(req);
-	console.log("important in response: \n url --> ",req.url,"\n method --> ",req.method,"\n headers -->" , req.headers);
+	
+	//console.log(req);
+	//console.log("important in response: \n url --> ",req.url,"\n method --> ",req.method,"\n headers -->" , req.headers);
+	
+	const url = req.url;
+	const method = req.method;
+	if(url === '/'){
+
+	// res.write allow you to write response
+	res.write('<html>');
+	res.write('<head> <title> My first Page </title> </head>');
+	res.write('<body> <form action="/message" method="POST" > <input name="message" type="text" /> <button type="submit">Send </button> </form> </body>');
+	res.write('</html>');
+	return res.end();
+
+	}
+
+	if (url === '/message' && method === 'POST'){
+		// creating and saving file
+		fs.writeFileSync('message.txt', "DUMMY")
+		
+		// redirecting to "/" 
+		// status code 302 means discribe redirection 
+		res.statusCode = 302 ;
+		res.setHeader('Location','/');
+
+		return res.end();
+	}
 	
 	// res.setHeader set certain header for response
 	res.setHeader('Content-Type',"text/html");
@@ -28,7 +54,7 @@ const server = http.createServer((req,res)=>{
 	res.end();
 
 	// process.exit() forced shut down the server 
-	// process.exit();
+	//process.exit();
 });
 
 // Listen take optional argument  port, host name 
