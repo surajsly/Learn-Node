@@ -1,6 +1,6 @@
 // create server only with core node module 
 
-//importing core node modules
+// Importing core node modules
 const http = require("http");
 const fs = require("fs");
 
@@ -57,7 +57,7 @@ const server = http.createServer((req,res)=>{
 	//process.exit();
 });
 
-// Listen take optional argument  port, host name 
+// Listen take optional argument  port, host name, 
 // this keeps on litening for upcomming request
 // here server run on 
 // http://localhost:3000/
