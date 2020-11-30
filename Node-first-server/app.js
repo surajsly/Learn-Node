@@ -11,7 +11,7 @@ const routes = require("./routes");
 // ( 1 )  A request which is of type incoming message 
 // ( 2 )  A response object,
 
-const server = http.createServer(routes);
+const server = http.createServer(routes.handler);
 
 // Listen take optional argument  port, host name, 
 // this keeps on litening for upcomming request
